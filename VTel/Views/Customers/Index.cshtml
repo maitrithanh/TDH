@@ -1,0 +1,59 @@
+﻿@model IEnumerable<VTel.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Khach Hang";
+    ViewBag.Current = "KhachHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Customers", FormMethod.Get))
+{
+    <input type="text" name="_name" />
+    <input type="submit" value="Search" />
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MAKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HOTENKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDTKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MAKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTENKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDTKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

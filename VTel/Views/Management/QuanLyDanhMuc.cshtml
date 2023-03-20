@@ -1,0 +1,57 @@
+﻿@model IEnumerable<VTel.Models.DANHMUC>
+
+@{
+    ViewBag.Title = "Quản Lý Danh Mục";
+    ViewBag.Current = "QuanLyDanhMuc";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "DanhMuc")"><span class="glyphicon glyphicon-plus"></span> Thêm Danh Mục</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+    <thead>
+        <tr class="text-green">
+            <th>
+                Mã Danh Mục
+            </th>
+            <th>
+                Tên Danh Mục
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MADANHMUC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TENDANHMUC)
+                </td>
+                <td style="text-align: right;">
+                    <a href="@Url.Action("Edit", "DanhMuc", new { id = item.ID })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                    @*<a href="@Url.Action("Detail", "DanhMuc", new { id = item.ID })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>*@
+                    <a href="@Url.Action("Delete", "DanhMuc", new { id = item.ID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr class="text-green">
+            <th>
+                Mã Danh Mục
+            </th>
+            <th>
+                Tên Danh Mục
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+</table>

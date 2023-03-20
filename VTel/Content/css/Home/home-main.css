@@ -1,0 +1,15 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+}
+
+.box-title {
+    background: #55A845;
+    color: #fff;
+    padding: 2px;
+}
+
+.title-about {
+    text-transform: uppercase;
+    font-weight: 700;
+}

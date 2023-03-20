@@ -1,0 +1,90 @@
+﻿@model VTel.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Chi Tiết - Quản Lý Nhân Viên";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">Chi Tiết Nhân Viên</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-6" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">User ID @Html.ValidationMessageFor(model => model.USERID)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.USERID)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Họ Tên @Html.ValidationMessageFor(model => model.HOTENNV)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.HOTENNV)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Giới Tính @Html.ValidationMessageFor(model => model.GIOITINH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.GIOITINH)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <h4 class="hint-name">Ngày Sinh @Html.ValidationMessageFor(model => model.NGAYSINH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.NGAYSINH)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Địa Chỉ @Html.ValidationMessageFor(model => model.DIACHI)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.DIACHI)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Chức Vụ @Html.ValidationMessageFor(model => model.CHUCVU)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.CHUCVU1.TENCV)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyNhanVien", "Management")
+</div>

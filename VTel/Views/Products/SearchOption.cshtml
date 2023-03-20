@@ -1,0 +1,46 @@
+﻿@model IEnumerable<VTel.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "SearchOption";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>SearchOption</h2>
+
+@using (Html.BeginForm("SearchOption", "Products"))
+{
+    <text>Giá Từ: </text>
+    <input type="number" name="min" value="" />
+    <text>Đến: </text>
+    <input type="number" name="max" value="" />
+    <input type="submit" value="Tìm" />
+    <div class="container">
+        <div class="row">
+            @foreach (var pro in Model)
+            {
+                <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card-pro">
+                        <h3>@Html.DisplayFor(model => pro.TENSP)</h3>
+                        <img src="@Url.Content(pro.HINHANHSP) " alt="@Html.DisplayFor(model => pro.TENSP)" height="150" width="150" />
+                        <p>
+                            @Html.DisplayFor(model => pro.DANHMUC)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(model => pro.MOTASP)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(model => pro.GIASP)
+                        </p>
+
+                        <p>
+                            @*link toi trang gio hang*@
+                            <a href="/ShoppingCart/AddToCart/@pro.PRODUCTID" class="btn btn-default">Mua</a>
+                            @*<input type="submit" name="buy" value="buy" />*@
+                        </p>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
+

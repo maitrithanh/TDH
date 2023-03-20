@@ -1,0 +1,104 @@
+﻿@model IEnumerable<VTel.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "Quản Lý Sản Phẩm";
+    ViewBag.Current = "QuanLySanPham";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "Products")"><span class="glyphicon glyphicon-plus"></span> Thêm Sản Phẩm</a>
+</div>
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get))
+{
+    @*<input type="text" name="_name" />
+    <input type="submit" value="Search" />*@
+
+    <table class="table table-striped" id="example" style="width:100%">
+        <thead>
+            <tr class="text-green">
+                <th>
+                    ID
+                </th>
+                <th>
+                    Tên Sản Phẩm
+                </th>
+                <th>
+                    Hình Ảnh
+                </th>
+                <th>
+                    Danh Mục
+                </th>
+                <th>
+                    Mô Tả
+                </th>
+                <th style="min-width: 85px;">
+                    Giá Bán
+                </th>
+                <th style="min-width: 285px;">
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRODUCTID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TENSP)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.HINHANHSP) " alt="@Html.DisplayFor(modelItem => item.TENSP)" height="50" width="50" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MADANHMUC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MOTASP)
+                    </td>
+                    <td style="color: #ff424e;">
+                        @Convert.ToDecimal(item.GIASP).ToString("N0")
+                        ₫
+                    </td>
+                    <td style="text-align: right;">
+                        <a href="@Url.Action("Edit", "Products", new { id = item.PRODUCTID })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                        <a href="@Url.Action("Details", "Products", new { id = item.PRODUCTID })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                        <a href="@Url.Action("Delete", "Products", new { id = item.PRODUCTID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="text-green">
+                <th>
+                    ID
+                </th>
+                <th>
+                    Tên Sản Phẩm
+                </th>
+                <th>
+                    Hình Ảnh
+                </th>
+                <th>
+                    Danh Mục
+                </th>
+                <th>
+                    Mô Tả
+                </th>
+                <th>
+                    Giá Bán
+                </th>
+                <th>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+}
+
+

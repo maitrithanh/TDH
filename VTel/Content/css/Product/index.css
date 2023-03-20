@@ -1,0 +1,17 @@
+﻿body {
+}
+
+#div-ds {
+    text-align: center;
+    background-color: #ea1c00;
+    height: 50px;
+    border-radius: 20px 20px 0 0;
+}
+
+.menu-page li {
+    display: inline;
+}
+
+.pagination .active > a {
+    color: #fff !important;
+}

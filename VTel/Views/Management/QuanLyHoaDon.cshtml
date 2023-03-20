@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VTel.Models.HOADON>
+
+@{
+    ViewBag.Title = "Quản Lý Hoá Đơn";
+    ViewBag.Current = "QuanLyHoaDon";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "HoaDon")"><span class="glyphicon glyphicon-plus"></span> Tạo Hoá Đơn</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+        <thead>
+            <tr class="text-green">
+                <th>
+                    Ngày Tạo
+                </th>
+
+                <th>
+                    Người Tạo
+                </th>
+                <th>
+                    Khách Mua
+                </th>
+                <th>
+                    Số Lượng
+                </th>
+                <th>
+                    Tổng Tiền
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYTAO)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHANVIEN.HOTENNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTENKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SOLUONG)
+                </td>
+                <td style="color: #ff424e;">
+                    @Convert.ToDecimal(item.THANHTIEN).ToString("N0")
+                    ₫
+                </td>
+                <td style="text-align: right;">
+                    <a href="@Url.Action("Edit", "HoaDon", new { id = item.IDHOADON })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                    <a href="@Url.Action("Details", "HoaDon", new { id = item.IDHOADON })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                    <a href="@Url.Action("Delete", "HoaDon", new { id = item.IDHOADON })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                </td>
+            </tr>
+        }
+
+    </table>

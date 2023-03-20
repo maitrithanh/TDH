@@ -1,0 +1,129 @@
+﻿body {
+    background: #efefef;
+}
+
+.text-danger {
+    color: red;
+    font-style: italic;
+}
+
+.title-detail {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+.description-detail {
+    margin-top: 4px;
+    font-size: 14px;
+    background: #efefef;
+    height: 127px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.detail-box {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.img-detail-pro {
+    padding: 12px;
+    border-right: 1px solid #efefef;
+}
+
+.deatail-box-price {
+    background: #efefef;
+    border-radius: 5px;
+    height: 94px;
+    padding: 11px;
+}
+.deatail-box-price .price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff3945;
+    margin-bottom: 4px;
+}
+.ad-detail-price {
+    display: inline-block;
+    padding: 2px;
+    height: 28px;
+    cursor: pointer;
+    color: rgb(13, 92, 182);
+    padding: 4px 8px;
+    width: fit-content;
+    border-radius: 4px;
+    align-items: center;
+    border: 1px solid rgb(13, 92, 182);
+}
+
+.ad-detail-price:hover {
+    color: #fff;
+    background-color: rgba(13, 92, 182, 0.8);
+}
+
+.new-flag {
+    max-width: 42px;
+    margin-left: 3px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.detail-voucher {
+    padding: 0;
+}
+
+.detail-voucher li {
+    margin: 5px;
+    display: inline-block;
+    border: 1.5px solid #ea1c00;
+    padding: 5px;
+    border-radius: 4px;
+    width: fit-content;
+    font-weight: 600;
+    color: #ea1c00;
+}
+
+.button-buy {
+    margin: 6% 0 20px 79%;
+    height: 48px;
+    width: 222px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.button-buy:focus {
+    border: none;
+    outline: 0 !important;
+}
+.button-buy:focus-visible{
+    border: none;
+    outline: 0 !important;
+}
+
+.shipping-detail {
+    border: 1px solid rgb(238, 238, 238);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.first-shipping .zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.zoom:hover {
+    /*transform: scale(1.1);*/ /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.shipping-detail .hcm-zone {
+    font-weight: 600;
+    color: rgb(0, 171, 86);
+    display: inline-block;
+    border-left: 1px solid #efefef;
+    padding-left: 4px;
+}
+

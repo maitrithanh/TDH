@@ -1,0 +1,87 @@
+﻿@model VTel.Models.KHACHHANG
+@{
+    ViewBag.Title = "Thêm Khách Hàng";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="box-add">
+         @if (ViewBag.ErrorCustomerCreate != null)
+            {
+            <p class="LoginError">
+                @ViewBag.ErrorCustomerCreate
+            </p>
+            }
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">
+                        <img src="~/Content/images/rating.png" alt="anh them khach hang" height="50" width="50" />
+                        Thông Tin Khách Hàng
+                    </h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-9" style="display: flex;">
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Khách Hàng @Html.ValidationMessageFor(model => model.MAKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MAKH, new { htmlAttributes = new { placeholder = "Mã Khách Hàng", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Họ Tên @Html.ValidationMessageFor(model => model.HOTENKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HOTENKH, new { htmlAttributes = new { placeholder = "Họ Tên", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Điện Thoại @Html.ValidationMessageFor(model => model.SDTKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SDTKH, new { htmlAttributes = new { placeholder = "Số Điện Thoại", @class = "data-input" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Điện Thoại</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { placeholder = "Email", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="hint-name">Người Tạo</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { placeholder = "Mã Nhân Viên", @class = "data-input" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success create-all" value="Thêm" />
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyKhachHang", "Management")
+</div>
+
+<div style="padding: 5px;">
+    <p class="text-danger">Lưu ý: Mã khách hàng phải có ký tự KH ở đầu.</p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

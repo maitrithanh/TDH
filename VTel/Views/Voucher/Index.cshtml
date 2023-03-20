@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VTel.Models.VOUCHER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENVOUCHER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHIETKHAU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENVOUCHER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHIETKHAU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDVOUCHER }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDVOUCHER }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDVOUCHER })
+        </td>
+    </tr>
+}
+
+</table>

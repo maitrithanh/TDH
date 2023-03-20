@@ -1,0 +1,80 @@
+﻿@model VTel.Models.DONHANG
+
+@{
+    ViewBag.Title = "Tạo Đơn Hàng";
+    ViewBag.Current = "QuanLyDonHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+@*///////*@
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("Create", "DonHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">
+                        <img src="~/Content/images/note.png" alt="icon don hang" height="50" width="50" />
+                        Thông Tin Đơn Hàng
+                    </h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-9" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Khách Hàng @Html.ValidationMessageFor(model => model.MAKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MAKH, new { htmlAttributes = new { placeholder = "Mã Khách Hàng", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Địa Chỉ Giao Hàng @Html.ValidationMessageFor(model => model.DIACHIGIAOHANG)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DIACHIGIAOHANG, new { htmlAttributes = new { placeholder = "Địa Chỉ Giao Hàng", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Điện Thoại @Html.ValidationMessageFor(model => model.SDTKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SDTKH, new { htmlAttributes = new { placeholder = "Số Điện Thoại", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <h4 class="hint-name">ID Sản Phẩm</h4>
+                                <div class="col-md-10">
+                                    <input type="number" class="data-input" placeholder="ID Sản Phẩm" value="" name="idsp" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Lượng </h4>
+                                <div class="col-md-10">
+                                    <input type="number" class="data-input" placeholder="Số Lượng" value="" name="soluong" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Đơn Giá </h4>
+                                <div class="col-md-10">
+                                    <input type="number" class="data-input" placeholder="Đơn Giá" value="" name="dongia" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success create-all" value="Tạo Đơn Hàng" />
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyDonHang", "Management")
+</div>

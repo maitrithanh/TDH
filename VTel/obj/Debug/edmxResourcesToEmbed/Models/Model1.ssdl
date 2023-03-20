@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VTELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAMEUSER" Type="nvarchar(max)" />
+    <Property Name="ROLEUSER" Type="nvarchar(max)" />
+    <Property Name="PASSWORDUSER" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CHITIETDONHANG">
+    <Key>
+      <PropertyRef Name="IDCHITIETDONHANG" />
+    </Key>
+    <Property Name="IDCHITIETDONHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDH" Type="int" />
+    <Property Name="PRODUCTID" Type="int" />
+    <Property Name="SOLUONG" Type="int" />
+    <Property Name="DONGIA" Type="float" />
+    <Property Name="THANHTIEN" Type="float" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACV" />
+    </Key>
+    <Property Name="MACV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TENCV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DANHMUC">
+    <Key>
+      <PropertyRef Name="MADANHMUC" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MADANHMUC" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="TENDANHMUC" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="IDDH" />
+    </Key>
+    <Property Name="IDDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NGAYDAT" Type="date" />
+    <Property Name="MAKH" Type="nchar" MaxLength="10" />
+    <Property Name="DIACHIGIAOHANG" Type="nvarchar(max)" />
+    <Property Name="SDTKH" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="IDHOADON" />
+    </Key>
+    <Property Name="IDHOADON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCTID" Type="int" Nullable="false" />
+    <Property Name="SOLUONG" Type="int" Nullable="false" />
+    <Property Name="DONGIA" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MAKH" Type="nchar" MaxLength="10" />
+    <Property Name="HOTENKH" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MANV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NGAYTAO" Type="date" />
+    <Property Name="THANHTIEN" Type="float" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAKH" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="HOTENKH" Type="nvarchar(max)" />
+    <Property Name="SDTKH" Type="nvarchar" MaxLength="10" />
+    <Property Name="EMAIL" Type="nvarchar(max)" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="VOUCHERID" Type="int" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HOTENNV" Type="nvarchar(max)" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="3" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="DIACHI" Type="nvarchar(max)" />
+    <Property Name="CHUCVU" Type="nvarchar" MaxLength="10" />
+    <Property Name="USERID" Type="int" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="PRODUCTID" />
+    </Key>
+    <Property Name="PRODUCTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENSP" Type="nvarchar(max)" />
+    <Property Name="MOTASP" Type="nvarchar(max)" />
+    <Property Name="MADANHMUC" Type="nchar" MaxLength="20" />
+    <Property Name="GIASP" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HINHANHSP" Type="nvarchar(max)" />
+    <Property Name="SOLUONG" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="VOUCHER">
+    <Key>
+      <PropertyRef Name="IDVOUCHER" />
+    </Key>
+    <Property Name="IDVOUCHER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENVOUCHER" Type="nvarchar(max)" />
+    <Property Name="CHIETKHAU" Type="float" />
+  </EntityType>
+  <Association Name="FK__CHITIETDON__IDDH__46E78A0C">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="0..1" />
+    <End Role="CHITIETDONHANG" Type="Self.CHITIETDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="IDDH" />
+      </Principal>
+      <Dependent Role="CHITIETDONHANG">
+        <PropertyRef Name="IDDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG__MAKH__440B1D61">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__MANV__49C3F6B7">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__PRODUCTI__4AB81AF0">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="PRODUCTID" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="PRODUCTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NV_CHUCVU">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="CHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRO_DANHMUC">
+    <End Role="DANHMUC" Type="Self.DANHMUC" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANHMUC">
+        <PropertyRef Name="MADANHMUC" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MADANHMUC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VTELModelStoreContainer">
+    <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETDONHANG" EntityType="Self.CHITIETDONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHMUC" EntityType="Self.DANHMUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHITIETDON__IDDH__46E78A0C" Association="Self.FK__CHITIETDON__IDDH__46E78A0C">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__MAKH__440B1D61" Association="Self.FK__DONHANG__MAKH__440B1D61">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__MANV__49C3F6B7" Association="Self.FK__HOADON__MANV__49C3F6B7">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__PRODUCTI__4AB81AF0" Association="Self.FK__HOADON__PRODUCTI__4AB81AF0">
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NV_CHUCVU" Association="Self.FK_NV_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRO_DANHMUC" Association="Self.FK_PRO_DANHMUC">
+      <End Role="DANHMUC" EntitySet="DANHMUC" />
+      <End Role="SANPHAM" EntitySet="SANPHAM" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

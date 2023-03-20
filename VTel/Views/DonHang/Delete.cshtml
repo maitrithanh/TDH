@@ -1,0 +1,103 @@
+﻿@model VTel.Models.DONHANG
+
+@{
+    ViewBag.Title = "Xoá - Quản Lý Đơn Hàng";
+    ViewBag.Current = "QuanLyDonHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">Xoá Đơn Hàng</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-6" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">ID Đơn Hàng</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.IDDH)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Ngày Đặt @Html.ValidationMessageFor(model => model.NGAYDAT)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.NGAYDAT)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Khách Hàng @Html.ValidationMessageFor(model => model.MAKH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.MAKH)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <h4 class="hint-name">Địa Chỉ @Html.ValidationMessageFor(model => model.DIACHIGIAOHANG)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.DIACHIGIAOHANG)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Điện Thoại @Html.ValidationMessageFor(model => model.SDTKH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.SDTKH)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <input type="button" class="btn btn-danger create-all" data-toggle="modal" data-target="#myModal" value="Xoá" />
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="float:left;">Xoá Khách Hàng</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn Chắc Chắn Xoá?</p>
+                        <p class="text-danger">
+                            @Html.DisplayFor(model => model.IDDH)
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Xoá" class="btn btn-danger" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyDonHang", "Management")
+</div>
+

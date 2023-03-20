@@ -1,0 +1,92 @@
+﻿@model VTel.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Thêm Nhân Viên - Quản Lý Nhân Viên";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Create", "NhanVien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="box-add">
+        @if (ViewBag.ErrorCustomerCreate != null)
+        {
+            <p class="LoginError">
+                @ViewBag.ErrorCustomerCreate
+            </p>
+        }
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">
+                        <img src="~/Content/images/team.png" alt="anh nhan vien" height="50" width="50" />
+                    Thông Tin Nhân Viên
+                    </h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-9" style="display: flex;">
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Nhân Viên @Html.ValidationMessageFor(model => model.MANV)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MANV, new { htmlAttributes = new { placeholder = "Mã Nhân Viên", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Họ Tên @Html.ValidationMessageFor(model => model.HOTENNV)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HOTENNV, new { htmlAttributes = new { placeholder = "Họ Tên", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Giới Tính @Html.ValidationMessageFor(model => model.GIOITINH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.GIOITINH, new { htmlAttributes = new { placeholder = "Giới Tính", @class = "data-input" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Ngày Sinh</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.NGAYSINH, new { htmlAttributes = new { placeholder = "Ngày Sinh", @class = "data-input" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Chức Vụ</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CHUCVU, new { htmlAttributes = new { placeholder = "Chức Vụ", @class = "data-input" } })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="hint-name">Địa Chỉ</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { placeholder = "Địa Chỉ", @class = "data-input" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success create-all" value="Thêm" />
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyNhanVien", "Management")
+</div>
+
+<div style="padding: 5px;">
+    <p class="text-danger">Lưu ý: Mã nhân viên phải có ký tự NV ở đầu.</p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,44 @@
+﻿@model VTel.Models.VOUCHER
+
+@{
+    ViewBag.Title = "Chỉnh Sửa - Quản Lý Voucher";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal box-add">
+        <h4>Voucher</h4>
+        <hr />
+        @Html.HiddenFor(model => model.IDVOUCHER)
+        <div class="row" style="padding: 50px;">
+            <div class="form-group col-md-6">
+                <h4 class="hint-name">Tên Voucher @Html.ValidationMessageFor(model => model.TENVOUCHER)</h4>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENVOUCHER, new { htmlAttributes = new { placeholder = "Tên Voucher", @class = "data-input" } })
+                    @Html.ValidationMessageFor(model => model.TENVOUCHER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <h4 class="hint-name">Chiết Khấu @Html.ValidationMessageFor(model => model.CHIETKHAU)</h4>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CHIETKHAU, new { htmlAttributes = new { placeholder = "Chiết Khấu", @class = "data-input" } })
+                    @Html.ValidationMessageFor(model => model.CHIETKHAU, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-success create-all" value="Lưu" />
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyVoucher", "Management")
+</div>

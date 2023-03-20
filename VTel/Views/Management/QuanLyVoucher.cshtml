@@ -1,0 +1,57 @@
+﻿@model IEnumerable<VTel.Models.VOUCHER>
+
+@{
+    ViewBag.Title = "Quản Lý Voucher";
+    ViewBag.Current = "QuanLyVoucher";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "Voucher")"><span class="glyphicon glyphicon-plus"></span> Tạo Voucher</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+    <thead>
+        <tr class="text-green">
+            <th>
+                Tên Voucher
+            </th>
+            <th>
+                Chiết Khẩu
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TENVOUCHER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHIETKHAU)
+                </td>
+                <td style="text-align: right;">
+                    <a href="@Url.Action("Edit", "Voucher", new { id = item.IDVOUCHER })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                    <a href="@Url.Action("Details", "Voucher", new { id = item.IDVOUCHER })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                    <a href="@Url.Action("Delete", "Voucher", new { id = item.IDVOUCHER })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                </td>
+            </tr>
+        </tbody>
+    }
+    <tfoot>
+        <tr class="text-green">
+            <th>
+                Tên Voucher
+            </th>
+            <th>
+                Chiết Khẩu
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+</table>

@@ -1,0 +1,48 @@
+﻿@model VTel.Models.VOUCHER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal box-add">
+        <h4>Voucher</h4>
+        <hr />
+        @Html.HiddenFor(model => model.IDVOUCHER)
+        <div class="row" style="padding: 50px;">
+            <div class="col-md-6" style="display: block;">
+                <div class="form-group">
+                    <h4 class="hint-name">Tên Voucher</h4>
+                    <div class="col-md-10">
+                        <p class="delete-box" style="width: 114% !important; height: 50px;">
+                            @Html.DisplayFor(model => model.TENVOUCHER)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="display: block;">
+                <div class="form-group">
+                    <h4 class="hint-name">Chiết Khấu</h4>
+                    <div class="col-md-10">
+                        <p class="delete-box" style="width: 114% !important; height: 50px;">
+                            @Html.DisplayFor(model => model.CHIETKHAU)
+                        </p>
+                    </div>
+                </div>
+            </div>
+       </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success create-all" value="Tạo" />
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyVoucher", "Management")
+</div>

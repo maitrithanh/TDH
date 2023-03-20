@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Giỏ Hàng";
+}
+<link href="~/Content/css/ShoppingCart/shoppingcart.css" rel="stylesheet" />
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+<div class="container">
+    <h2>Giỏ Hàng</h2>
+    <a href="@Url.Action("Index", "Products")">Tiếp tục mua hàng</a>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="head-shopping-cart">
+                <span>Sản Phẩm</span>
+                <span>Đơn giá</span>
+                <span>Số lượng</span>
+                <span>Thành tiền</span>
+                <span>
+                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg" alt="deleted">
+                </span>
+            </div>
+            <div class="body-shopping-cart" style="color: red; font-size: 17px;">
+                Chưa Có Sản Phẩm Nào!
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="checkout-shopping-cart">
+                <div class="checkout-showcost">
+                    <span>Tổng Tiền</span>
+                    <span style="color: red; font-size: 17px;"></span>
+                </div>
+            </div>
+            @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+            {
+                <div class="checkout-shopping-cart">
+                    <p class="text-center text-success">Thông tin giao hàng</p>
+                    <div>
+                        <input type="text" class="data-input" placeholder="Mã Khách Hàng" name="idkh" required />
+                    </div>
+                    <div>
+                        <input type="text" class="data-input" placeholder="Số Điện Thoại" value="" name="sdtkh" required />
+                    </div>
+                    <div>
+                        <input type="text" class="data-input" placeholder="Địa Chỉ" name="diachi" required />
+                    </div>
+                    <input type="submit" value="Mua Hàng" class="btn btn-danger" style="width: 100%;" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,215 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+html {
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    transition: 1s;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+/******************************/
+
+.top-logo {
+    float: left;
+    height: 37px;
+    width: 103px;
+    padding-right: 8px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #EAEAEA;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.bg-green {
+    padding: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255,.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -webkit-box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    z-index: 99;
+}
+
+.nav > li > a {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0,0,0,.5);
+    border-radius: 38px;
+}
+
+/*.nav > li {
+    border-radius: 10px;
+}*/
+
+.active > a{
+    font-weight: 700 !important;
+    color: #000 !important;
+    border-radius: 28px;
+/*    color: rgba(19, 195, 52,.8) !important;*/
+/*    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);*/
+}
+
+.login-btn {
+    border-radius: 50px;
+    background: #ea1c00;
+}
+
+li.login-btn > a {
+    color: #fff;
+}
+
+li.login-btn:hover > a {
+    color: #ea1c00;
+}
+
+.register-btn {
+    margin: 0 10px;
+    border-radius: 50px;
+    border: 2px solid #ea1c00;
+}
+
+li.register-btn > a {
+    color: #ea1c00;
+}
+
+li.register-btn:hover {
+    background: #ea1c00;
+}
+
+li.format-hello {
+    padding: 15px;
+}
+
+.btn-icon-menu {
+    color: #067346;
+
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    font-size: 24px;
+}
+
+.body-content {
+    /* height: 5000px;
+    background-color: antiquewhite;*/
+}
+
+.footer-top {
+    border-top: 5px solid #ea1c00;
+    margin-top: 38px;
+    width: 100%;
+    position: sticky;
+    /*    background: #6cf;
+*/ /*    border-radius: 50px 0 0 0;
+*/
+    /*    background: #00308b;
+*/
+    /*    background-image: url(/Content/images/bgfooter.png);
+*/
+    /*    padding: 20px;
+*/ background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.footer-li {
+    /* color: #666564;  */
+    color: #333333 !important;
+    background-color: transparent;
+    border: none;
+    padding: 6px 0px;
+}
+
+.footer-col h4 {
+    font-size: 30px;
+    color: #333333 !important;
+    /* color: #666564;  */
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 600;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+ul > li {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    font-size: 14px;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 0;
+    color: #333333 !important;
+    /* color: #666564;  */
+    display: block;
+    transition: all 0.3s ease;
+}
+    .footer-col ul li a:hover {
+        color: #ea1c00;
+        padding-left: 8px;
+    }
+
+.footer-bottom {
+    margin-top: 52px;
+    /*    background: #067346;*/
+    font-weight: 700;
+    /*background-color: rgba(6, 115, 70,.9);*/
+    line-height: 52px;
+    color: #333333 /*rgba(6, 115, 70,.9)*/;
+    bottom: 0;
+    background-color: rgb(233, 237, 242);
+    /*-webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);*/
+}
+
+.LoginError {
+    color: red;
+}
+
+.pagination > .active > a {
+    color: #fff !important;
+}
+
+.topBtn {
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    background-color: #0088ff;
+    border-radius: 50%;
+    display: none;
+    z-index: 1;
+}

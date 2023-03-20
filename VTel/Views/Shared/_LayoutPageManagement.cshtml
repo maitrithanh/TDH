@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/x-icon" href="~/Content/images/logo.png">
+    <link href="~/Content/css/Management/main-management.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery.min.js"></script>
+    <link href="~/Content/css/b4/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Content/js/Table.js"></script>
+</head>
+<body>
+    <div class="nav-left bg-dark" style=" position: fixed;">
+        <div class="div-logo">
+            <a href="/Home/Index">
+                <img src="~/Content/images/logo.png" alt="VTel Logo" class="management-logo" />
+            </a>
+            <ul class="nav nav-menu-list text-left">
+                <li class="@(ViewBag.Current == "TrangChu" ? "active" : "")">
+                    <a href="@Url.Action("Index", "Management")"><span class="glyphicon glyphicon-home"></span> Trang Chủ</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyDonHang" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyDonHang", "Management")"><span class="glyphicon glyphicon-barcode"></span> Quản Lý Đơn Hàng</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLySanPham" ? "active" : "")">
+                    <a href="@Url.Action("QuanLySanPham", "Management")"><span class="glyphicon glyphicon-list-alt"></span> Quản Lý Sản Phẩm</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyKhachHang" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyKhachHang", "Management")"><span class="glyphicon glyphicon-user"></span> Quản Lý Khách Hàng</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyDanhMuc" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyDanhMuc", "Management")"><span class="glyphicon glyphicon-th-list"></span> Quản Lý Danh Mục</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyNhanVien" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyNhanVien", "Management")"><i class="fa fa-users" aria-hidden="true"></i> Quản Lý Nhân Viên</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyVoucher" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyVoucher", "Management")"><span class="glyphicon glyphicon-tags"></span> Quản Lý Voucher</a>
+                </li>
+                <li class="@(ViewBag.Current == "QuanLyHoaDon" ? "active" : "")">
+                    <a href="@Url.Action("QuanLyHoaDon", "Management")"><span class="glyphicon glyphicon-print"></span> Hoá Đơn</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="nav-right-content">
+        <div class="header-content">
+            <div style="display: inline-block;height: 63px; padding: 10px;">
+                <h2 class="title-management">@ViewBag.Title</h2>
+            </div>
+
+            <div class="dropdown header-for-user" style="display: inline-block;">
+                <button class="profile dropdown-toggle justify-content-center" type="button" data-toggle="dropdown">
+                    <img src="~/Content/images/User.png" height="60" alt="Profile" />
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-cog"></span> Thông Tin Tài Khoản</a>
+                    </li>
+                    @if (Session["NAMEUSER"] != null)
+                    {
+                        <li>
+                            <a class="logout" href="/LoginUser/LogOutUser"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/LoginUser/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a>
+                        </li>
+
+                        <li>
+                            <a href="/LoginUser/RegisterUser"><span class="glyphicon glyphicon-user"></span> Đăng Ký</a>
+                        </li>
+                    }
+                </ul>
+                <div style="display: inline-block;">
+                    @if (Session["NAMEUSER"] == null)
+                    {
+                        <span>Xin Chào!</span>
+                    }
+                    else
+                    {
+                        <span>
+                            <text>Xin Chào</text>
+                            <strong class="text-success">@Session["NAMEUSER"]</strong>
+                        </span>
+                    }
+                </div>
+            </div>
+            @*<div class="header-for-user" style="display: inline-block;">
+                    <div class="avatar dropdown-toggle dropdown profile" style="display: inline-block;">
+                        <img src="~/Content/images/User.png" height="60" alt="Alternate Text" />
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-cog"></span> Thông Tin Tài Khoản</a>
+                            </li>
+                            @if (Session["NAMEUSER"] != null)
+                            {
+                                <li>
+                                    <a class="logout" href="/LoginUser/LogOutUser"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="/LoginUser/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a>
+                                </li>
+
+                                <li>
+                                    <a href="/LoginUser/RegisterUser"><span class="glyphicon glyphicon-user"></span> Đăng Ký</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div style="display: inline-block;">
+                        @if (Session["NAMEUSER"] == null)
+                        {
+                            <span>Xin Chào!</span>
+                        }
+                        else
+                        {
+                            <span>
+                                <text>Xin Chào</text>
+                                <strong class="text-success">@Session["NAMEUSER"]</strong>
+                            </span>
+                        }
+                    </div>
+                </div>*@
+        </div>
+
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

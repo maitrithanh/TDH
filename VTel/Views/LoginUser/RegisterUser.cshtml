@@ -1,0 +1,108 @@
+﻿@model VTel.Models.AdminUser
+
+@{
+    ViewBag.Title = "Đăng Ký";
+}
+
+<link href="~/Content/css/Login/main-login.css" rel="stylesheet" />
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<!-- form -->
+@using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-date" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="login-page">
+        <div class="form">
+            <div class="login-logo">
+                <img src="~/Content/images/logo.png" alt="VTel Logo" />
+                <h2 class="login-title">@ViewBag.Title</h2>
+            </div>
+            
+            @if (ViewBag.ErrorRegister != null)
+            {
+            <p class="LoginError">
+                @ViewBag.ErrorRegister
+            </p>
+            }
+        <form class="login-form">
+            @Html.ValidationMessageFor(model => model.NAMEUSER)
+            @Html.TextBoxFor(model => model.NAMEUSER, new { placeholder = "Tên tài khoản", style = "field-validation-error", @class = "data-input" })
+            @Html.ValidationMessageFor(model => model.PASSWORDUSER)
+            @Html.TextBoxFor(model => model.PASSWORDUSER, new { placeholder = "Mật khẩu", style = "field-validation-error", @class = "data-input", @type = "password" })
+            @Html.ValidationMessageFor(model => model.confirmPass)
+            @Html.TextBoxFor(model => model.confirmPass, new { placeholder = "Nhập Lại Mật khẩu", style = "field-validation-error", @class = "data-input", @type = "password" })
+            <input type="submit" value="ĐĂNG KÝ" class="input-submit-login" />
+            <p class="message">Bạn đã có tài khoản? <a href="/LoginUser/Index">Đăng nhập</a></p>
+        </form>
+        </div>
+    </div>
+}
+
+<!--End Form-->
+
+@*<h2>Đăng Ký</h2>
+
+@using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-date" }))
+{
+    @Html.AntiForgeryToken();
+    <p>@Html.LabelFor(model => model.ID)</p>
+    <p>@Html.EditorFor(model => model.ID)</p>
+    <p>@Html.ValidationMessageFor(model => model.ID)</p>
+
+    if (ViewBag.ErrorRegister != null)
+    {
+        <p>
+            @ViewBag.ErrorRegister
+        </p>
+    }
+    <p>
+        @Html.LabelFor(model => model.NAMEUSER)
+    </p>
+    <p>
+        @Html.EditorFor(model => model.NAMEUSER)
+    </p>
+    <p>
+        @Html.ValidationMessageFor(model => model.NAMEUSER)
+    </p>
+
+    <p>
+        @Html.LabelFor(model => model.ROLEUSER)
+    </p>
+    <p>
+        @Html.EditorFor(model => model.ROLEUSER)
+    </p>
+    <p>
+        @Html.ValidationMessageFor(model => model.ROLEUSER)
+    </p>
+
+    <p>
+        @Html.LabelFor(model => model.PASSWORDUSER)
+    </p>
+    <p>
+        @Html.EditorFor(model => model.PASSWORDUSER)
+    </p>
+    <p>
+        @Html.ValidationMessageFor(model => model.PASSWORDUSER)
+    </p>
+
+    <p>
+        @Html.LabelFor(model => model.confirmPass)
+    </p>
+    <p>
+        @Html.EditorFor(model => model.confirmPass)
+    </p>
+    <p>
+        @Html.ValidationMessageFor(model => model.confirmPass)
+    </p>
+
+    <input type="submit" value="Đăng Ký" />
+}*@
+
+
+
+

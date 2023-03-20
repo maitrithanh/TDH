@@ -1,0 +1,102 @@
+﻿@model IEnumerable<VTel.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "QuanLyNhanVien";
+    ViewBag.Current = "QuanLyNhanVien";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "NhanVien")"><span class="glyphicon glyphicon-plus"></span> Thêm Nhân Viên Mới</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+    <thead>
+        <tr class="text-green">
+            <th>
+                Mã Nhân Viên
+            </th>
+            <th>
+                Họ Tên Nhân Viên
+            </th>
+            <th>
+                Giới Tính
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Tài Khoản
+            </th>
+            <th>
+                Chức Vụ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MANV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTENNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIOITINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYSINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHUCVU1.TENCV)
+                </td>
+                <td style="text-align: right;">
+                    <a href="@Url.Action("Edit", "NhanVien", new { id = item.MANV })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                    <a href="@Url.Action("Details", "NhanVien", new { id = item.MANV })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                    <a href="@Url.Action("Delete", "NhanVien", new { id = item.MANV })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                </td>
+            </tr>
+        </tbody>
+    }
+    <tfoot>
+        <tr class="text-green">
+            <th>
+                Mã Nhân Viên
+            </th>
+            <th>
+                Họ Tên Nhân Viên
+            </th>
+            <th>
+                Giới Tính
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Tài Khoản
+            </th>
+            <th>
+                Chức Vụ
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+</table>

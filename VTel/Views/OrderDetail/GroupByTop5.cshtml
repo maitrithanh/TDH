@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VTel.Models.ViewModel>
+
+@{
+    ViewBag.Title = "GroupByTop5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GroupByTop5</h2>
+
+<table>
+    <tr>
+        <th>
+            Mã Sản Phẩm
+        </th>
+        <th>
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Hình Ảnh Sản Phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Tổng Số Lượng
+        </th>
+    </tr>
+    @foreach (var i in Model)
+     {
+        <tr>
+            <td>@Html.DisplayFor(model => i.IDpro)</td>
+            <td>@Html.DisplayFor(model => i.TenSP)</td>
+            <td><img src="@Url.Content(i.ImgPro)" height="150" width="150" /></td>
+            <td>@Html.DisplayFor(model => i.GiaSP)</td>
+            <td>@Html.DisplayFor(model => i.Sum_Quantity)</td>
+            <td><a href="/ShoppingCart/AddToCart/@i.IDpro" class="btn btn-default">Mua</a></td>
+        </tr>
+     }
+</table>
+

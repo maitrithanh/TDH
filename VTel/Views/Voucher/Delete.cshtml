@@ -1,0 +1,74 @@
+﻿@model VTel.Models.VOUCHER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+<div>
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">Thông Tin Voucher</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-12" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">Tên Voucher @Html.ValidationMessageFor(model => model.TENVOUCHER)</h4>
+                                <div class="col-md-10" style="width: 100%;">
+                                    <p class="delete-box">@Html.DisplayFor(model => model.TENVOUCHER)</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Chiết Khấu @Html.ValidationMessageFor(model => model.CHIETKHAU)</h4>
+                                <div class="col-md-10" style="width: 100%;">
+                                    <p class="delete-box">@Html.DisplayFor(model => model.CHIETKHAU)</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="button" class="btn btn-danger create-all" data-toggle="modal" data-target="#myModal" value="Xoá" />
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="float:left;">Xoá Voucher</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn Chắc Chắn Xoá?</p>
+                        <p class="text-danger">
+                            @Html.DisplayFor(model => model.TENVOUCHER)
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Xoá" class="btn btn-danger" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyDanhMuc", "Management")
+</div>

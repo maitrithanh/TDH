@@ -1,0 +1,86 @@
+﻿@model VTel.Models.AdminUser
+
+@{
+    ViewBag.Title = "Đăng Nhập";
+    //Layout = "~/View/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/Login/main-login.css" rel="stylesheet" />
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+
+<!-- form -->
+@using (Html.BeginForm("LoginUser", "LoginUser"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="login-page">
+        <div class="form">
+            <div class="login-logo">
+                <img src="~/Content/images/logo.png" alt="VTel Logo" />
+                <h2 class="login-title">ĐĂNG NHẬP</h2>
+            </div>
+            @if (ViewBag.ErrorLogin != null)
+            {
+                <p class="LoginError">@ViewBag.ErrorLogin</p>
+            }
+            <form class="login-form">
+                @Html.ValidationMessageFor(model => model.NAMEUSER)
+                @Html.TextBoxFor(model => model.NAMEUSER, new { placeholder = "Tên tài khoản", style = "field-validation-error", @class = "data-input" })
+                @Html.ValidationMessageFor(model => model.PASSWORDUSER)
+                @Html.TextBoxFor(model => model.PASSWORDUSER, new { placeholder = "Mật khẩu", style = "field-validation-error", @class = "data-input", @type = "password" })
+                <input type="submit" value="Đăng Nhập" class="input-submit-login" />
+                <p class="message">Bạn chưa có tài khoản? <a href="/LoginUser/RegisterUser">Đăng ký tài khoản</a></p>
+            </form>
+        </div>
+    </div>
+}
+
+<!--End Form-->
+
+@*<h2>Đăng Nhập</h2>
+@using (Html.BeginForm("LoginUser", "LoginUser"))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.ErrorLogin != null)
+    {
+        <p class="LoginError">@ViewBag.ErrorLogin</p>
+    }
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.NAMEUSER)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.NAMEUSER, new { style = "field-validation-error" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(model => model.NAMEUSER)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.PASSWORDUSER)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.PASSWORDUSER)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(model => model.PASSWORDUSER)
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Đăng Nhập" />
+            </td>
+        </tr>
+    </table>
+}*@
+

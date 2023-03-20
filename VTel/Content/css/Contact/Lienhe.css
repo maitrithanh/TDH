@@ -1,0 +1,258 @@
+.Hotro-client{
+    padding: 0 0 60px;
+    position: relative;
+}
+.hotro-client-bg {
+    background-color: #ea1c00;
+    border-radius: 0 0 115px 0;
+    height: 194px;
+    width: 100%;
+}
+
+
+.hotro-client-top {
+    background-color: #ea1c00;
+    position: relative;
+}
+.hotro-client-inner{
+    background-color: #fbfbfb;
+    border-radius: 115px 0 0 0;
+}
+.hotro-client-box {
+    background-color: #fff;
+    margin: 0 auto -165px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: -165px;
+    margin-left: auto;
+    max-width: 1200px;
+    position: relative;
+    top: -100px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+}
+.Duonglink {
+    margin: 0;
+}
+.Hotro {
+    margin: 0;
+    padding: 4px;
+    border-radius: 5px;
+}
+.Duonglink ul li{
+    display: inline;
+    font-size: 18px;
+}
+.Duonglink li a{
+    color: #44494D !important;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+.Duonglink .content li a{
+    color: #44494D !important;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+.Duonglink ul li i{
+    font-size: 12px;
+    vertical-align: middle;
+}
+.Hotro-online{
+    color: #44494d;
+    font-family: 'FS PFBeauSansPro', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 0 0 15px;
+    margin-left:40px;
+}
+.Hotro-item-link{
+    display:flex;
+}
+
+
+.content{
+    max-width: 100%;
+    margin: 0 auto;
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.Hotro-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px;
+}
+.Hotro-list-item{
+    -webkit-box-flex: 0;
+    flex: 0 0 calc(100% / 3 - 30px);
+    margin: 0 15px 30px;
+    position: relative;
+    transition: all 0.6s;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    width: calc(100% / 3 - 30px);
+}
+.Hotro-list-item:hover{
+    opacity: 0.8;
+}
+.a{
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+.Hotro-info{
+    background: -webkit-linear-gradient(top, rgba(68, 73, 77, 0) 0%, rgba(0, 0, 0, 0) 0.01%, #000 100%);
+    background: linear-gradient(180deg, rgba(68, 73, 77, 0) 0%, rgba(0, 0, 0, 0) 0.01%, #000 100%);
+    border-radius: 0 0 8px 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    padding: 30px;
+    position: absolute;
+    right: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1 !important;
+}
+.h5{
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.hotro-name{
+    color: #fff;
+    font-family: 'FS PFBeauSansPro', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.ul, ol, li {
+    list-style: none;
+    
+}
+.Hotro-img{
+    border-radius: 8px 8px 8px 0;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+body {
+    background: #fff;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    color: #252525;
+    font-size: 14px;
+    line-height: 1.15;
+}
+
+.hotro-icon{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #eee;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 105px;
+    -ms-flex: 0 0 105px;
+    flex: 0 0 105px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 105px;
+}
+.hotro-service-info{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 15px 30px;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    width: calc(100% - 105px);
+}
+.hotro-service-name{
+    color: #44494d;
+    font-family: 'FS PFBeauSansPro', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    line-height: 30px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.Hotro-service-list{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+.Hotro-service-item{
+    background-color: #fff;
+    border-radius: 8px 8px 8px 0;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 calc(100% / 2 - 30px);
+    -ms-flex: 0 0 calc(100% / 2 - 30px);
+    flex: 0 0 calc(100% / 2 - 30px);
+    height: 100%;
+    margin: 0 15px 30px;
+    min-height: 102px;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+    width: calc(100% / 2 - 30px);
+}
+.hotro-service-name a{
+    text-decoration: none;
+    color: #576C8A;
+}
+.hotro-service{
+    background-color: #313538;
+    margin: 30px 0 0;
+    padding: 30px 0 20px;
+    position: relative;
+    margin-bottom: 71px;
+}

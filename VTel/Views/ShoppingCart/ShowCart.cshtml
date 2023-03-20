@@ -1,0 +1,172 @@
+﻿@model VTel.Models.Cart
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/ShoppingCart/shoppingcart.css" rel="stylesheet" />
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+
+
+<div class="container" style="min-height: 450px;">
+    <h2>Giỏ Hàng</h2>
+    @*@if (ViewBag.ErrorSoLuong != null)
+        {
+        <p class="LoginError">@ViewBag.ErrorSoLuong</p>
+        }*@
+    @if (Session["Alert"] != null)
+    {
+        <p class="LoginError" style=" text-align: center; background: #fff; padding: 10px; border-radius: 5px;">
+            @Session["MaSpQuanTi"] @Session["Alert"]
+        </p>
+        Session["Alert"] = null;
+    }
+    <a href="@Url.Action("Index", "Products")">Tiếp tục mua hàng</a>
+    @if (Model != null)
+    {
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="head-shopping-cart">
+                    <span>Sản Phẩm</span>
+                    <span>Đơn giá</span>
+                    <span>Số lượng</span>
+                    <span>Thành tiền</span>
+                    <span>
+                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg" alt="deleted">
+                    </span>
+                </div>
+                @foreach (var item in Model.Items)
+                {
+                    decimal total = item._SOLUONG * (decimal)item._SANPHAM.GIASP.Value;
+                    <div class="body-shopping-cart">
+                        <span style="display: inline-block;">
+                            <div style="display: inline-block;">
+                                <img src="@Url.Content(item._SANPHAM.HINHANHSP)" height="50" width="50" />
+                            </div>
+                            <div style="display: inline-block;">
+                                <p>@Html.DisplayFor(model => item._SANPHAM.TENSP)</p>
+                            </div>
+                        </span>
+                        <span>@Convert.ToDecimal(item._SANPHAM.GIASP).ToString("N0") ₫</span>
+                        <span>
+                            <div>
+                                @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
+                                {
+                                    <input type="hidden" value="@item._SANPHAM.PRODUCTID" name="idSP" />
+                                    <div class="input-update-cart">
+                                        <input type="number" value="@item._SOLUONG" name="SlCart" style="width: 41px; border: none; background: #efefef; padding: 3px; border-radius: 4px;" />
+                                        <input type="submit" value="Cập Nhật" class="btn btn-danger" />
+                                    </div>
+                                }
+                            </div>
+                        </span>
+                        <span>
+                            <span class="text-success" style="font-size: 13px; font-weight: 500; line-height: 20px; display: block; padding: 0;">@total.ToString("N0") VNĐ</span>
+                        </span>
+                        <span>
+                            <a href="/ShoppingCart/RemoveCart/@item._SANPHAM.PRODUCTID">
+                                <span class="text-danger">
+                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg" alt="deleted">
+                                </span>
+                            </a>
+                        </span>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-4">
+                <div class="checkout-shopping-cart">
+                    <div class="checkout-showcost">
+                        <span style="font-size: 17px;">Tổng Tiền</span>
+                        <span style="color: red; font-size: 17px;" id="show_total">@Model.Total_Money().ToString("N0") ₫</span>
+                        <input type="hidden" id="total" value="@Convert.ToDouble(Model.Total_Money())">
+                        <input type="hidden" id="chietkhau" value="@Convert.ToDouble(Session["CHIETKHAU"])">
+                    </div>
+                </div>
+                @if (Session["VOUCHERID"] != null)
+                {
+                    <div class="checkout-shopping-cart">
+                        <div class="checkout-showcost" style="display: block;">
+                            <span style="font-size: 17px; display: block;">
+                                <a href="#">@Session["VOUCHERNAME"]</a>
+                            </span>
+                            <span style="color: red; font-size: 17px;">
+                                <span style="color: white; width: 100%">
+                                    <button class="btn btn-danger" onclick="setVoucher()">Áp Dụng Voucher</button>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                }
+
+                @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                {
+                    <div class="checkout-shopping-cart">
+                        <p class="text-center text-success" style="font-size: 18px;">Thông Tin Giao Hàng</p>
+                        <div>
+                            <input type="hidden" class="data-input" placeholder="Mã Khách Hàng" value="@Session["IDUSER"]" name="idkh" required />
+                        </div>
+                        <div>
+                            <input type="text" class="data-input" placeholder="Số Điện Thoại" value="" name="sdtkh" required />
+                        </div>
+                        <div>
+                            <input type="text" class="data-input" placeholder="Địa Chỉ" name="diachi" required />
+                        </div>
+
+                        @*voucher*@
+
+                        @*end voucher*@
+                        @if (Session["VOUCHERID"] != null)
+                        {
+                            <div>
+                                <input type="hidden" class="data-input" placeholder="Voucher" value="0" id="inputVoucher" name="voucher" />
+                                <script>
+                            function setVoucher() {
+                                var x = document.getElementById("total").value;
+                                var y = document.getElementById("chietkhau").value;
+                                var t = (parseFloat(x) - (parseFloat(x) * parseFloat(y)));
+                                document.getElementById("show_total").innerHTML = t.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ₫";
+                                document.getElementById('inputVoucher').value = @Session["VOUCHERID"];
+                            }
+                                </script>
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="hidden" class="data-input" placeholder="Voucher" value="0" name="voucher" />
+                        }
+                        <input type="submit" value="Mua Hàng" class="btn btn-danger" style="width: 100%;" />
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.Partial("EmptyCart")
+    }
+</div>
+
+<!--<table style="border-collapse:separate;border-spacing:5px;">
+    <tr>
+        <td>
+            <input type="text" class="data-input" placeholder="Mã Khách Hàng" name="idkh" required />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="data-input" placeholder="Địa Chỉ" name="diachi" required />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Mua Hàng" class="btn btn-success" style="width: 100%;" />-->
+            @*<a href="@Url.Action("Create", "Customers")" class="btn btn-primary">Đăng Ký</a>*@
+        <!--</td>
+    </tr>
+</table>-->
+
+

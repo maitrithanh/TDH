@@ -1,0 +1,243 @@
+﻿.navbar-sec {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+    .navbar-sec ul li {
+        padding: 9px 0;
+    }
+
+        .navbar-sec ul li a {
+            font-size: 18px;
+        }
+
+            .navbar-sec ul li a:hover {
+                text-decoration: none;
+            }
+
+.box-slider {
+    height: 26em;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.slide-product-1 {
+    background: url(https://www.anlocviet.vn/upload/images/uu-dai-khach-hang-lon.jpg)no-repeat center / cover;
+}
+
+.slide-product-2 {
+    background: url(https://nhakhoavietmysmile.vn/wp-content/uploads/2020/05/ANHBIA-1.png)no-repeat center / cover;
+}
+
+.section-title {
+    font-weight: 600;
+}
+
+.products-box {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    /* border-radius: 20px 20px 20px 20px; */
+}
+
+    .products-box:hover  {
+        cursor: pointer;
+       /* transform: scale(1.05, 1.05);
+        transition: all 0.5s;*/
+        /*border: 1px solid #55A845;*/  
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    } 
+
+
+.product-img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.product-box-body {
+    background-color: #FFF;
+    border-radius: 0 0 20px 20px;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+    .product-title > a:hover {
+        text-decoration: none;
+    }
+
+.product-teacher-section {
+    padding: 10px 0 0 0;
+}
+
+.new-feed {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.box-inner-new {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+a {
+    background: transparent;
+}
+
+
+/* Card info */
+.container1 {
+    justify-self: center;
+    align-items: center;
+}
+
+    .container1 .card .box {
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        justify-self: center;
+        align-items: center;
+        transition: 0.5s;
+    }
+
+        .container1 .card .box .content {
+            padding: 10px;
+            text-align: center;
+        }
+
+            .container1 .card .box .content h5 {
+                font-size: 1.6em;
+                color: #ea1c00;
+                z-index: 1;
+                transition: 0.5s;
+            }
+
+            .container1 .card .box .content p {
+                font-size: 1em;
+                color: #777;
+                z-index: 1;
+                transition: 0.5s;
+            }
+
+    .container1 .card .box {
+        background: linear-gradient(45deg,#ea1c00,#8a1000 );
+    }
+
+    .container1 .card:hover .box {
+        /* transform: translateY(-50px); */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(45deg,#ea1c00,#8a1000 );
+    }
+        .container1 .card .box .content h5 {
+            color: white;
+        }
+
+        .container1 .card .box .content p {
+            color: white;
+        }
+
+        .container1 .card:hover .box .content h5 {
+            color: white;
+        }
+
+        .container1 .card:hover .box .content p {
+            color: white;
+        }
+
+
+.card_img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #ea1c00;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+    .card_img img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        border-radius: 2px;
+    }
+
+.title-info {
+    text-align: center;
+}
+
+
+/* statistical */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+}
+
+.l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+}
+
+.l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.l-bg-green {
+    background: linear-gradient(135deg, #f97a69 0%, #e4351e 100%) !important;
+    color: #fff;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.custom-text-show > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 214px;
+}

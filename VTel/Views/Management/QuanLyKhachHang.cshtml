@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VTel.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Quản Lý Khách Hàng";
+    ViewBag.Current = "QuanLyKhachHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "Customers")"><span class="glyphicon glyphicon-plus"></span> Thêm Khách Hàng</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+    <thead>
+        <tr class="text-green">
+            <th>
+                Mã Khách Hàng
+            </th>
+            <th>
+                Họ Tên
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                VoucherID
+            </th>
+            <th>
+                USERID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MAKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTENKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDTKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VOUCHERID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERID)
+                </td>
+                <td style="text-align: right;">
+                    <a href="@Url.Action("Edit", "Customers", new { id = item.Id })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                    <a href="@Url.Action("Details", "Customers", new { id = item.Id })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                    <a href="@Url.Action("Delete", "Customers", new { id = item.Id })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr class="text-green">
+            <th>
+                Mã Khách Hàng
+            </th>
+            <th>
+                Họ Tên
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                VoucherID
+            </th>
+            <th>
+                USERID
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+</table>

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<VTel.Models.DONHANG>
+
+@{
+    ViewBag.Title = "Quản Lý Đơn Hàng";
+    ViewBag.Current = "QuanLyDonHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Management/quan-ly-san-pham.css" rel="stylesheet" />
+
+
+<div class="btn btn-success add">
+    <a href="@Url.Action("Create", "DonHang")"><span class="glyphicon glyphicon-plus"></span> Tạo Đơn Hàng</a>
+</div>
+<table class="table table-striped" id="example" style="width:100%">
+    <thead>
+        <tr class="text-green">
+            <th>
+                ID Đơn Hàng
+            </th>
+
+            <th>
+                Ngày Đặt
+            </th>
+            <th>
+                Mã Khách Hàng
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                Trạng Thái
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDDH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYDAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHIGIAOHANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDTKH)
+            </td>
+            <td>
+                <div style="background: #55A845; text-align: center; border-radius: 15px; ">
+                    <p style="color: #fff; padding: 5px;">Thành Công</p>
+                </div>
+            </td>
+            <td style="text-align: right;">
+                <a href="@Url.Action("Edit", "DonHang", new { id = item.IDDH })" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</a>
+                <a href="@Url.Action("EditCTDH", "DonHang", new { id = item.IDDH })" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span> Chi Tiết</a>
+                <a href="@Url.Action("Delete", "DonHang", new { id = item.IDDH })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xoá</a>
+            </td>
+        </tr>
+    }
+    <tfoot>
+        <tr class="text-green">
+            <th>
+                ID Đơn Hàng
+            </th>
+
+            <th>
+                Ngày Đặt
+            </th>
+            <th>
+                Mã Khách Hàng
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+
+</table>
+

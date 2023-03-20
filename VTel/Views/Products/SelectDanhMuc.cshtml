@@ -1,0 +1,4 @@
+﻿@model VTel.Models.DANHMUC
+
+@Html.DropDownListFor(model => model.MADANHMUC,
+    new SelectList(Model.ListDanhMuc.OrderBy(model => model.MADANHMUC), "MADANHMUC", "TENDANHMUC"), "--Danh Mục--", new { @class = "data-input" })

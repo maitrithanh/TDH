@@ -1,0 +1,93 @@
+﻿@model VTel.Models.KHACHHANG
+@{
+    ViewBag.Title = "Chi Tiết - Quản Lý Khách Hàng";
+    ViewBag.Current = "QuanLyKhachHang";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">Chi Tiết Khách Hàng</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-6" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">ID</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.Id)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Khách Hàng @Html.ValidationMessageFor(model => model.MAKH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.MAKH)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Họ Tên @Html.ValidationMessageFor(model => model.HOTENKH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.HOTENKH)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Điện Thoại @Html.ValidationMessageFor(model => model.SDTKH)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.SDTKH)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Email @Html.ValidationMessageFor(model => model.EMAIL)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.EMAIL)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Voucher @Html.ValidationMessageFor(model => model.VOUCHERID)</h4>
+                                <div class="col-md-10">
+                                    <p class="delete-box" style="width: 114% !important; height: 50px;">
+                                        @Html.DisplayFor(model => model.VOUCHERID)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <p class="btn btn-success back">
+            @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = Model.Id })
+        </p>
+
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyKhachHang", "Management")
+</div>
+

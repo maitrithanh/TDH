@@ -1,0 +1,54 @@
+﻿@model VTel.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/Product/products-main.css" rel="stylesheet" />
+<link href="~/Content/css/Product/products-list.css" rel="stylesheet" />
+<link href="~/Content/css/Product/product-detail.css" rel="stylesheet" />
+<div class="content container p-4">
+    <div class="row detail-box">
+        <div class="">
+            <div class="col-md-4 img-detail-pro">
+                <img src="@Url.Content(Model.HINHANHSP)" alt="@Html.DisplayFor(model => model.TENSP)" class="product-img img-fluid zoom" width="444" height="444">
+            </div>
+            <div class="col-md-8">
+                <h2 style="font-weight: 500;">@Html.DisplayFor(model => model.TENSP) </h2>
+
+                <div class="deatail-box-price">
+                    <p class="price">
+                        @Convert.ToDecimal(Model.GIASP).ToString("N0")₫
+                    </p>
+                    <div class="ad-detail-price">
+                        <p>Cơ Hội Trúng Quà Ngay Khi Mua</p>
+                    </div>
+                    <img src="https://salt.tikicdn.com/ts/upload/43/01/71/d74d0e9e37a9bb14f35dcc0c816d2038.gif" class="new-flag">
+                </div>
+                <hr>
+                <p class="title-detail">Mã Giảm Giá</p>
+                <ul class="detail-voucher">
+                    <li>Giảm 10k</li>
+                    <li>Giảm 50k</li>
+                    <li>Giảm 100k</li>
+                </ul>
+                <p class="title-detail">Mô Tả Sản Phẩm</p>
+                <p class="description-detail">@Html.DisplayFor(model => model.MOTASP)</p>
+                <p class="text-danger">Lưu ý*: sản phẩm khuyến mãi sẽ có số thuê bao được giao ngẫu nhiên.</p>
+                <hr />
+                <div class="shipping-detail">
+                    <div class="first-shipping">
+                        <img src="https://salt.tikicdn.com/ts/upload/67/e4/c2/02b5400b39bb3371e06d33c1e9f4d854.png" alt="" height="14" width="32" style="margin: 3px 0 4px 0; display: inline-block;">
+                        <p class="hcm-zone">Free Ship - TP. Hồ Chí Minh</p>
+                    </div>
+                    <div style="display: inline-block;">
+                        <p style="display: inline-block;">Vận Chuyển: 0đ</p>
+                        <p style="display: inline-block; text-decoration: line-through; color: #808089;">15.000đ</p>
+                    </div>
+                </div>
+            </div>
+            <a href="/ShoppingCart/AddToCart/@Model.PRODUCTID" class="btn btn-danger button-buy">Chọn Mua</a>
+        </div>
+    </div>
+</div>

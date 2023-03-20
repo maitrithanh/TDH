@@ -1,0 +1,87 @@
+﻿@model VTel.Models.HOADON
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPageManagement.cshtml";
+}
+
+<link href="~/Content/css/Product/create.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Edit", "HoaDon", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="box-add">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <h4 class="text-ce">Thông Tin Hoá Đơn</h4>
+                    <hr />
+                    @Html.HiddenFor(model => model.IDHOADON)
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-9" style="display: block;">
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Sản Phẩm @Html.ValidationMessageFor(model => model.PRODUCTID)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.PRODUCTID, new { htmlAttributes = new { placeholder = "Mã Sản Phẩm", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Số Lượng @Html.ValidationMessageFor(model => model.SOLUONG)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SOLUONG, new { htmlAttributes = new { placeholder = "Số Lượng", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Đơn Giá @Html.ValidationMessageFor(model => model.DONGIA)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DONGIA, new { htmlAttributes = new { placeholder = "Đơn Giá", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Thành Tiền @Html.ValidationMessageFor(model => model.THANHTIEN)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.THANHTIEN, new { htmlAttributes = new { placeholder = "Thành Tiền", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Khách Hàng @Html.ValidationMessageFor(model => model.MAKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MAKH, new { htmlAttributes = new { placeholder = "Mã Khách Hàng", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Họ Tên Khách Hàng @Html.ValidationMessageFor(model => model.HOTENKH)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HOTENKH, new { htmlAttributes = new { placeholder = "Họ Tên Khách Hàng", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Mã Nhân Viên @Html.ValidationMessageFor(model => model.MANV)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MANV, new { htmlAttributes = new { placeholder = "Mã NV", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="hint-name">Ngày Tạo @Html.ValidationMessageFor(model => model.NGAYTAO)</h4>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.NGAYTAO, new { htmlAttributes = new { placeholder = "Ngày Tạo", @class = "data-input data-input-weight" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success create-all" value="Lưu" />
+    </div>
+}
+
+<div class="btn btn-primary back">
+    @Html.ActionLink("Quay Lại", "QuanLyHoaDon", "Management")
+</div>
